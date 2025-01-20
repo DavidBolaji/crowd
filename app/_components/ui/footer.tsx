@@ -39,6 +39,7 @@ export const Footer = () => {
 
                 {foot.navs.map((nav) => (
                   <p
+                  key={nav.name}
                     className="text-[16px] font-light leading-5 pb-4 text-white"
                   >
                     {nav.name}

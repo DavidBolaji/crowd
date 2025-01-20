@@ -8,7 +8,6 @@ import { Button } from "./button";
 import Link from "next/link";
 import Logo from '@/public/logo.png'
 import Image from "next/image";
-import { BarChart2 } from "lucide-react";
 import { MobileDrawer } from "./mobile-drawer";
 import { useRouter } from "next/navigation";
 

@@ -4,7 +4,6 @@ import Wrapper from '../ui/wrapper'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
 import Image from 'next/image'
 import { ArrowBigRight } from 'lucide-react'
-import { useRouter } from 'next/navigation'
 import { cardData } from '@/app/_lib/data'
 import Link from 'next/link'
 
@@ -16,7 +15,7 @@ const CustomCard: React.FC<{ url: string, title: string, desc: string, link: str
     desc,
     link
 }) => {
-    const router = useRouter()
+  
     return (
         <Card className='bg-black border-none rounded-none shadow-2xl'>
             <CardHeader className='relative h-56'>
