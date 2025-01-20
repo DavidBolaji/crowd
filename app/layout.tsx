@@ -18,29 +18,24 @@ export const metadata: Metadata = {
   title: "BEST Crowd Management | Event Security Services",
   description: "BEST ensures a safe and successful guest experience with our event security services.",
   keywords: ["Crowd Management", "Event Security", "Event Staffing", "Event Consulting", "BEST Crowd Management"],
-  // authors: [{ name: "BEST Crowd Management", url: "https://best.garda.com/" }],
-  // openGraph: {
-  //   title: "BEST Crowd Management | Event Security Services",
-  //   description: "BEST ensures a safe and successful guest experience with our event security services.",
-  //   url: "https://best.garda.com/",
-  //   siteName: "BEST Crowd Management",
-  //   images: [
-  //     {
-  //       url: "/path-to-your-image.jpg",
-  //       width: 1200,
-  //       height: 630,
-  //       alt: "BEST Crowd Management Event Security",
-  //     },
-  //   ],
-  //   locale: "en_US",
-  //   type: "website",
-  // },
-  // twitter: {
-  //   card: "summary_large_image",
-  //   title: "BEST Crowd Management | Event Security Services",
-  //   description: "BEST ensures a safe and successful guest experience with our event security services.",
-  //   images: ["/path-to-your-image.jpg"],
-  // },
+  authors: [{ name: "BEST Crowd Management", url: "https://crowd-man.netlify.app" }],
+  openGraph: {
+    title: "BEST Crowd Management | Event Security Services",
+    description: "BEST ensures a safe and successful guest experience with our event security services.",
+    url: "https://crowd-man.netlify.app",
+    siteName: "BEST Crowd Management",
+    images: [
+      {
+        url: "/icon.png",
+        width: 1200,
+        height: 630,
+        alt: "BEST Crowd Management Event Security",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
 };
 
 export default function RootLayout({
