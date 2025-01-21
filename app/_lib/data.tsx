@@ -69,7 +69,7 @@ export const navLinks = [
   },
   {
     link: "Clients & Partners",
-    href: "/partners",
+    href: `https://wa.me/${whatsapp}`,
     children: []
   }
 ]

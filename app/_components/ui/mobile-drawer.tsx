@@ -2,10 +2,10 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ChevronRight, ChevronLeft, Menu } from "lucide-react"
+import { ChevronRight, ChevronLeft, Menu, X } from "lucide-react"
 import { navLinks, whatsapp } from "@/app/_lib/data"
 import { Button } from "./button"
-import { Sheet, SheetContent, SheetTrigger } from "./sheet"
+import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./sheet"
 import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -15,7 +15,7 @@ export function MobileDrawer() {
     const [isOpen, setIsOpen] = useState<boolean>(false); // Track main menu open state
 
     return (
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <Sheet  open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="md:hidden">
                     <Menu size={50} className="scale-125" />
@@ -23,7 +23,19 @@ export function MobileDrawer() {
                 </Button>
             </SheetTrigger>
 
-            <SheetContent side="top" className="w-full h-screen bg-black text-white p-0">
+            <SheetContent side="bottom" className="w-full h-[80vh] bg-black text-white p-0">
+                 {/* ✅ Required for Accessibility */}
+                 <SheetHeader className="hidden">
+                    <SheetTitle>Menu</SheetTitle>
+                </SheetHeader>
+
+                {/* ❌ Removed Default Close Button & Added Custom One */}
+                <button 
+                    onClick={() => setIsOpen(false)} 
+                    className="absolute z-20 top-2 right-2 p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition"
+                >
+                    <X className="w-6 h-6 text-white" />
+                </button>
                 <div className="flex flex-col h-full">
                     <div className="flex flex-col space-y-4 p-6 pt-20 relative">
                         <AnimatePresence mode="wait">
@@ -37,7 +49,7 @@ export function MobileDrawer() {
                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                     className="absolute inset-0 p-6 bg-black space-y-5"
                                 >
-                                    <button 
+                                    <button
                                         onClick={() => setOpenMenu(null)}
                                         className="flex items-center space-x-2 text-lg font-bold mb-4"
                                     >
@@ -47,9 +59,9 @@ export function MobileDrawer() {
 
                                     {navLinks.find(link => link.link === openMenu)?.children?.map((child, index) => (
                                         <div key={`${child.link}-${index}`} className="border-b border-gray-800 pb-4">
-                                            <Link 
-                                                href={child.href} 
-                                                className="text-lg font-bold uppercase block" 
+                                            <Link
+                                                href={child.href}
+                                                className="text-lg font-bold uppercase block"
                                                 onClick={() => {
                                                     setOpenMenu(null);
                                                     setIsOpen(false); // Close main menu
@@ -74,7 +86,7 @@ export function MobileDrawer() {
                                         <div key={`${link.link}-${index}`} className="border-b border-gray-800 pb-4">
                                             <div className="flex items-center justify-between">
                                                 {link.children?.length > 0 ? (
-                                                    <button 
+                                                    <button
                                                         className="text-lg font-bold uppercase flex items-center w-full justify-between"
                                                         onClick={() => setOpenMenu(link.link)}
                                                     >
@@ -82,8 +94,8 @@ export function MobileDrawer() {
                                                         <ChevronRight className="h-5 w-5 text-gray-400" />
                                                     </button>
                                                 ) : (
-                                                    <Link 
-                                                        href={link.href as string} 
+                                                    <Link
+                                                        href={link.href as string}
                                                         className="text-lg font-bold uppercase block"
                                                         onClick={() => setIsOpen(false)} // Close main menu
                                                     >
@@ -107,11 +119,11 @@ export function MobileDrawer() {
 
                     {/* 🔴 Footer Button */}
                     <div className="mt-auto p-6 space-y-4">
-                        <Button 
+                        <Button
                             onClick={() => {
                                 router.push(`https://wa.me/${whatsapp}`);
                                 setIsOpen(false); // Close main menu
-                            }} 
+                            }}
                             className="w-full bg-primary border-primary text-white rounded-none uppercase font-bold"
                         >
                             Talk To An Expert
