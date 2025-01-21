@@ -5,7 +5,7 @@ import Link from "next/link"
 import { ChevronRight, ChevronLeft, Menu, X } from "lucide-react"
 import { navLinks, whatsapp } from "@/app/_lib/data"
 import { Button } from "./button"
-import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./sheet"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./sheet"
 import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 
